@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy:       #001F3F;
+  --color-navy-deep:  #0A2540;
+  --color-navy-mid:   #0d3260;
+  --color-navy-light: #1a4a7a;
+  --color-gold:       #C9A84C;
+  --color-gold-light: #e8c96d;
+  --color-off-white:  #F7F9FC;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-[#0A2540] antialiased;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ── Reveal on scroll ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Typing cursor blink ──────────────────────────── */
+@keyframes blink-cursor {
+  0%, 100% { border-color: #C9A84C; }
+  50%       { border-color: transparent; }
+}
+.typing-cursor {
+  border-right: 2px solid #C9A84C;
+  padding-right: 3px;
+  animation: blink-cursor 0.85s step-end infinite;
+}
+
+/* ── Pulse dot ──────────────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+/* ── Gear spin ──────────────────────────────────────── */
+@keyframes spin-gear { to { transform: rotate(360deg); } }
+.spin-gear { animation: spin-gear 12s linear infinite; }
+
+/* ── Scroll bounce ──────────────────────────────────── */
+@keyframes bounce-hint {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+.bounce-hint { animation: bounce-hint 1.8s ease infinite; }
+
+/* ── Hero fade-in keyframes ─────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up   { animation: fadeUp   0.9s ease both; }
+.animate-fade-down { animation: fadeDown 0.8s ease both; }
+
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-350 { animation-delay: 0.35s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-650 { animation-delay: 0.65s; }
+.animate-delay-1000 { animation-delay: 1s; }
+.animate-delay-1200 { animation-delay: 1.2s; }
+
+/* ── Hero grid background ───────────────────────────── */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Service card underline accent ─────────────────── */
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #C9A84C, #e8c96d);
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: left;
+}
+.service-card:hover::after { transform: scaleX(1); }
