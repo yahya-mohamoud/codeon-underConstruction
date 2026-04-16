@@ -36,13 +36,20 @@ function Unit({ value, label }: { value: string; label: string }) {
   );
 }
 
+const PLACEHOLDER: TimeLeft = { days: "--", hours: "--", mins: "--", secs: "--" };
+
 export default function Countdown() {
-  const [time, setTime] = useState<TimeLeft>(getTimeLeft);
+  // Start as null to avoid SSR/client hydration mismatch — time changes every second
+  const [time, setTime] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
+    // Populate immediately on mount, then tick every second
+    setTime(getTimeLeft());
     const id = setInterval(() => setTime(getTimeLeft()), 1000);
     return () => clearInterval(id);
   }, []);
+
+  const display = time ?? PLACEHOLDER;
 
   return (
     <div
@@ -55,13 +62,13 @@ export default function Countdown() {
           Launching in
         </span>
         <div className="flex items-end gap-2 sm:gap-3">
-          <Unit value={time.days}  label="Days"    />
+          <Unit value={display.days}  label="Days"    />
           <span className="text-2xl font-black text-[#001F3F]/50 mb-4">:</span>
-          <Unit value={time.hours} label="Hours"   />
+          <Unit value={display.hours} label="Hours"   />
           <span className="text-2xl font-black text-[#001F3F]/50 mb-4">:</span>
-          <Unit value={time.mins}  label="Minutes" />
+          <Unit value={display.mins}  label="Minutes" />
           <span className="text-2xl font-black text-[#001F3F]/50 mb-4">:</span>
-          <Unit value={time.secs}  label="Seconds" />
+          <Unit value={display.secs}  label="Seconds" />
         </div>
       </div>
     </div>

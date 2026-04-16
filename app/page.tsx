@@ -1,11 +1,11 @@
-import Navbar     from "@/components/Navbar";
-import Hero       from "@/components/Hero";
-import Countdown  from "@/components/Countdown";
-import About      from "@/components/About";
-import Services   from "@/components/Services";
-import Contact    from "@/components/Contact";
-import Footer     from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
+import Navbar           from "@/components/Navbar";
+import Hero             from "@/components/Hero";
+import CountdownWrapper from "@/components/CountdownWrapper";
+import About            from "@/components/About";
+import Services         from "@/components/Services";
+import Contact          from "@/components/Contact";
+import Footer           from "@/components/Footer";
+import ScrollReveal     from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Countdown />
+        <CountdownWrapper />
         <About />
         <Services />
         <Contact />
