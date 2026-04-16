@@ -3,9 +3,9 @@ import Link from "next/link";
 const quickLinks = ["Home", "About", "Services", "Contact"];
 const contactInfo = [
   { label: "hello@codeon.com", href: "mailto:hello@codeon.com" },
-  { label: "+1 (212) 555-0192",  href: "tel:+12125550192" },
+  { label: "+1 (212) 555-0192", href: "tel:+12125550192" },
   { label: "123 Innovation Drive, NY", href: "#" },
-  { label: "Mon–Fri: 9am – 6pm EST",   href: "#" },
+  { label: "Mon–Fri: 9am – 6pm EST", href: "#" },
 ];
 
 const socials = [
@@ -13,8 +13,8 @@ const socials = [
     label: "LinkedIn",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-        <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" />
       </svg>
     ),
   },
@@ -22,7 +22,7 @@ const socials = [
     label: "Twitter / X",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
     ),
   },
@@ -30,9 +30,9 @@ const socials = [
     label: "Instagram",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5"/>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
       </svg>
     ),
   },
@@ -49,13 +49,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <Link href="#home" className="inline-flex items-center gap-2.5 mb-4" aria-label="Codeon Home">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#C9A84C] to-[#e8c96d] flex items-center justify-center font-black text-[#001F3F] text-lg">
-                C
-              </div>
-              <span className="text-xl font-extrabold text-white tracking-tight">
-                Code<span className="text-[#C9A84C]">on</span>
-              </span>
+            <Link href="#home" className="flex items-center gap-2.5" aria-label="Codeon Home">
+              <img className="w-40" src="Primary white.png" alt="" />
             </Link>
             <p className="text-[0.87rem] leading-[1.8] max-w-xs mb-5">
               A forward-thinking company building exceptional digital experiences.

@@ -34,14 +34,17 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="#home" className="flex items-center gap-2.5" aria-label="Codeon Home">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#C9A84C] to-[#e8c96d] flex items-center justify-center font-black text-[#001F3F] text-lg leading-none">
-              C
-            </div>
-            <span className="text-xl font-extrabold text-white tracking-tight">
-              Code<span className="text-[#C9A84C]">on</span>
-            </span>
-          </Link>
+          <Link 
+  href="#home" 
+  className="flex items-center gap-2.5" 
+  aria-label="Codeon Home"
+>
+  <img 
+    src="Primary white.png" 
+    alt="Codeon Logo" 
+    className="w-32 md:w-40 lg:w-48 h-auto max-w-full" 
+  />
+</Link>
 
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-1" role="list">
